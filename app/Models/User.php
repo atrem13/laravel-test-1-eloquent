@@ -14,7 +14,7 @@ class User extends Authenticatable
     use HasApiTokens, HasFactory, Notifiable;
     public function scopeActive(Builder $query)
     {
-        return $query->whereNull('email_verified_at');
+        return $query->whereNotNull('email_verified_at');
     }
 
     /**
